@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itmc311/Pages/LandingPage.dart';
+import 'package:itmc311/Pages/HelpPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
       theme:
           ThemeData(primarySwatch: Colors.blue, fontFamily: 'BubbleboddyNeue'),
       home: const RootPage(),
+      routes: {
+        '/help': (context) => const HelpPage(),
+        '/logout': (context) => const RootPage(),
+      },
     );
   }
 }
