@@ -105,7 +105,7 @@ class LogInPageSV extends StatelessWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return const StudentPage();
+                          return const StudentScreen();
                         },
                       ),
                     );
