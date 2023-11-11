@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itmc311/Pages/AdminPage.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class HomeSVPage extends StatelessWidget {
   const HomeSVPage({super.key});
@@ -15,7 +16,6 @@ class HomeSVPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  color: Color.fromRGBO(234, 247, 255, 1),
                   alignment: Alignment.topLeft,
                   margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
                   child: const Text(
@@ -28,7 +28,56 @@ class HomeSVPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                
+                Container(
+                  alignment: Alignment.topRight,
+                  margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      customButton: const Icon(
+                        Icons.person,
+                        size: 30,
+                        color: Color.fromRGBO(0, 0, 255, 1),
+                      ),
+                      items: [
+                        ...MenuItems.firstItems.map(
+                          (item) => DropdownMenuItem<MenuItem>(
+                            value: item,
+                            child: MenuItems.buildItem(item),
+                          ),
+                        ),
+                        const DropdownMenuItem<Divider>(
+                            enabled: false, child: Divider()),
+                        ...MenuItems.secondItems.map(
+                          (item) => DropdownMenuItem<MenuItem>(
+                            value: item,
+                            child: MenuItems.buildItem(item),
+                          ),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        MenuItems.onChanged(context, value! as MenuItem);
+                      },
+                      dropdownStyleData: DropdownStyleData(
+                        width: 160,
+                        padding: const EdgeInsets.symmetric(vertical: 6),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color.fromRGBO(234, 247, 255, 1),
+                        ),
+                        offset: const Offset(0, 8),
+                      ),
+                      menuItemStyleData: MenuItemStyleData(
+                        customHeights: [
+                          ...List<double>.filled(MenuItems.firstItems.length, 48),
+                          8,
+                          ...List<double>.filled(
+                              MenuItems.secondItems.length, 48),
+                        ],
+                        padding: const EdgeInsets.only(left: 16, right: 16),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
             Container(
@@ -359,4 +408,54 @@ class ParkingArea extends StatelessWidget {
   }
 }
 
+class MenuItem {
+  const MenuItem({
+    required this.text,
+    required this.icon,
+  });
 
+  final String text;
+  final IconData icon;
+}
+
+abstract class MenuItems {
+  static const List<MenuItem> firstItems = [user, help];
+  static const List<MenuItem> secondItems = [logout];
+
+  static const user = MenuItem(text: 'User', icon: Icons.person);
+  static const help = MenuItem(text: 'Help', icon: Icons.help);
+  static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
+
+  static Widget buildItem(MenuItem item) {
+    return Row(
+      children: [
+        Icon(item.icon, color: const Color.fromRGBO(10, 10, 31, 1), size: 22),
+        const SizedBox(
+          width: 10,
+        ),
+        Expanded(
+          child: Text(
+            item.text,
+            style: const TextStyle(
+              color: Color.fromRGBO(10, 10, 31, 1),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  static void onChanged(BuildContext context, MenuItem item) {
+    switch (item) {
+      case MenuItems.user:
+        //Do something
+        break;
+      case MenuItems.help:
+        Navigator.pushNamed(context, '/help'); 
+        break;
+      case MenuItems.logout:
+        Navigator.pushNamed(context, '/logout'); 
+        break;
+    }
+  }
+}

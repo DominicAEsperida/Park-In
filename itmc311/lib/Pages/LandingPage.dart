@@ -24,9 +24,9 @@ class LandingPage extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            // Image.asset('assets/Logo.png'),
-            Image.network(
-                'https://lh3.googleusercontent.com/drive-viewer/AK7aPaC_5HKXZOTr7orv4IneSsqrP263_shCLT_Cuufr123ydUSvoQuboK1KGfJYcW-W-wT9dq3cAJvYs8Aa0WWuNeH2UDuwHQ=s2560'),
+            Image.asset('assets/Logo.png'),
+            // Image.network(
+            //     'https://lh3.googleusercontent.com/drive-viewer/AK7aPaC_5HKXZOTr7orv4IneSsqrP263_shCLT_Cuufr123ydUSvoQuboK1KGfJYcW-W-wT9dq3cAJvYs8Aa0WWuNeH2UDuwHQ=s2560'),
             const Text(
               'Welcome to',
               style: TextStyle(
@@ -124,8 +124,8 @@ class LandingPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 110.0),
-              child: Image.network(
-                  'https://lh3.googleusercontent.com/drive-viewer/AK7aPaAF-tM8L3QTaE5W0J7qP-6Nm-GPbzqVrBZP_4cb43NFMWPy2v77CIHqdDUvehnc0LOrBR2Fhb33tKhSYwYiXc2ZdGw1Sg=s2560'),
+              
+              child:  Image.asset('assets/landingpage.png'),
             ),
             const Text(
               '© 2023 Cho P. Ltd, Inc. All Rights Reserved',

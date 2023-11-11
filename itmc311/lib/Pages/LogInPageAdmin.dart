@@ -43,8 +43,7 @@ class LogInPageAdmin extends StatelessWidget {
               const SizedBox(
                 height: 50.0,
               ),
-              Image.network(
-                'https://lh3.googleusercontent.com/drive-viewer/AK7aPaCCDMTGPwrFhSTzEXcDAWY6_B0oznD4C-Sj8XOq0KHg0IOPDqotROrGAZB1WCOoVO2vxsx83MEasTnyNrauqJps8zF2zQ=s2560',
+              Image.asset('assets/admin.png',
                 height: 200.0,
                 width: 200.0,
               ),

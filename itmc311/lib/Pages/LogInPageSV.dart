@@ -43,8 +43,7 @@ class LogInPageSV extends StatelessWidget {
               const SizedBox(
                 height: 50.0,
               ),
-              Image.network(
-                  'https://lh3.googleusercontent.com/drive-viewer/AK7aPaAGaLV8tHWyvLTtph8hycug_lpi9mWY4o_umduURPvmK4g4JVxp4cViHTxdYllcZ8GtVC3ZkBq3NQLmpabS44iAPpW-8A=s2560'),
+              Image.asset('assets/SV.png'),
               const Text(
                 'Get Started!',
                 style: TextStyle(
