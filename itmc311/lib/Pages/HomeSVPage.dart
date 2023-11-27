@@ -34,9 +34,9 @@ class HomeSVPage extends StatelessWidget {
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton2(
                       customButton: const Icon(
-                        Icons.person,
+                        Icons.more_vert_rounded,
                         size: 30,
-                        color: Color.fromRGBO(0, 0, 255, 1),
+                        color: Color.fromRGBO(10, 10, 31, 1),
                       ),
                       items: [
                         ...MenuItems.firstItems.map(
@@ -68,7 +68,8 @@ class HomeSVPage extends StatelessWidget {
                       ),
                       menuItemStyleData: MenuItemStyleData(
                         customHeights: [
-                          ...List<double>.filled(MenuItems.firstItems.length, 48),
+                          ...List<double>.filled(
+                              MenuItems.firstItems.length, 48),
                           8,
                           ...List<double>.filled(
                               MenuItems.secondItems.length, 48),
@@ -151,15 +152,47 @@ class HomeSVPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(50, 0, 0, 10),
-              child: Container(
-                alignment: Alignment.topLeft,
-                child: const Text(
-                  'Parking Areas',
-                  style: TextStyle(
-                    color: Color.fromRGBO(10, 10, 31, 1),
-                    fontSize: 20.0,
+              child: Row(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: const Text(
+                      'Parking Areas',
+                      style: TextStyle(
+                        color: Color.fromRGBO(10, 10, 31, 1),
+                        fontSize: 20.0,
+                      ),
+                    ),
                   ),
-                ),
+                  Container(
+                    alignment: Alignment.topRight,
+                    child: Tooltip(
+                      message: 'Text',
+                      waitDuration: Duration(seconds: 1),
+                      showDuration: Duration(seconds: 2),
+                      padding: EdgeInsets.all(12),
+                      height: 35,
+                      verticalOffset: 100,
+                      preferBelow: true,
+                      textStyle: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.only(topRight: Radius.circular(10)),
+                          boxShadow: [
+                            new BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 10.0,
+                              offset: new Offset(6.0, 6.0),
+                            ), //BoxShadow
+                          ],
+                          color: Colors.greenAccent[400]), //BoxDecoration
+                      child: Icon(Icons.info_outline_rounded)
+                    ), //Tooltip
+                  ),
+                ],
               ),
             ),
             Row(
@@ -451,10 +484,10 @@ abstract class MenuItems {
         //Do something
         break;
       case MenuItems.help:
-        Navigator.pushNamed(context, '/help'); 
+        Navigator.pushNamed(context, '/help');
         break;
       case MenuItems.logout:
-        Navigator.pushNamed(context, '/logout'); 
+        Navigator.pushNamed(context, '/logout');
         break;
     }
   }
