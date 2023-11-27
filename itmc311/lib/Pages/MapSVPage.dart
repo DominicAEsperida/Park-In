@@ -14,9 +14,10 @@ class _MapSVPageState extends State<MapSVPage> {
   List<Widget> carouselContent = [
     Column(
       children: [
-        Row(
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(left: 20, top: 20),
               child: Text(
                 'Alingal A',
@@ -26,14 +27,24 @@ class _MapSVPageState extends State<MapSVPage> {
                 ),
               ),
             ),
-            BabylonJSViewer(src: "assets/Alingal-B.glb"),
           ],
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 500,
+              width: 310,
+              child: BabylonJSViewer(src: "assets/Alingal-A.glb"),
+            ),
+          ],
+        )
       ],
     ),
-    const Column(
+    Column(
       children: [
-        Row(
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 20, top: 20),
@@ -47,6 +58,16 @@ class _MapSVPageState extends State<MapSVPage> {
             ),
           ],
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 500,
+              width: 310,
+              child: BabylonJSViewer(src: "assets/Alingal-B.glb"),
+            ),
+          ],
+        )
       ],
     ),
     const Column(
@@ -56,7 +77,7 @@ class _MapSVPageState extends State<MapSVPage> {
             Padding(
               padding: EdgeInsets.only(left: 20, top: 20),
               child: Text(
-                'Church',
+                'Burns',
                 style: TextStyle(
                   fontSize: 26,
                   color: Color.fromRGBO(10, 10, 31, 1),
@@ -85,9 +106,10 @@ class _MapSVPageState extends State<MapSVPage> {
         ),
       ],
     ),
-    const Column(
+    Column(
       children: [
-        Row(
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 20, top: 20),
@@ -101,6 +123,16 @@ class _MapSVPageState extends State<MapSVPage> {
             ),
           ],
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 500,
+              width: 310,
+              child: BabylonJSViewer(src: "assets/CC.glb"),
+            ),
+          ],
+        )
       ],
     ),
     const Column(
@@ -113,7 +145,7 @@ class _MapSVPageState extends State<MapSVPage> {
                 'Library',
                 style: TextStyle(
                   fontSize: 26,
-                  color: Color.fromRGBO(10, 10, 31, 1),
+                  color: Color.fromRGBO(10, 10, 31, 1 ),
                 ),
               ),
             ),
@@ -121,7 +153,6 @@ class _MapSVPageState extends State<MapSVPage> {
         ),
       ],
     ),
-    // Add more content for additional carousels
   ];
 
   late final PageController pageController;
@@ -130,13 +161,13 @@ class _MapSVPageState extends State<MapSVPage> {
   Timer? carouselTimer;
 
   Timer getTimer() {
-    return Timer.periodic(const Duration(seconds: 5), (timer) {
+    return Timer.periodic(const Duration(seconds: 10), (timer) {
       if (pageNum == 5) {
         pageNum = 0;
       }
 
       pageController.animateToPage(pageNum,
-          duration: const Duration(seconds: 5),
+          duration:  Duration(seconds: 10),
           curve: Curves.fastEaseInToSlowEaseOut);
 
       pageNum++;
@@ -189,7 +220,7 @@ class _MapSVPageState extends State<MapSVPage> {
             ],
           ),
           SizedBox(
-            height: 650,
+            height: 600,
             child: PageView.builder(
               controller: pageController,
               onPageChanged: (index) {
