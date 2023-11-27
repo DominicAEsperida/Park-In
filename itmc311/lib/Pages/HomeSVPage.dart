@@ -167,30 +167,30 @@ class HomeSVPage extends StatelessWidget {
                   Container(
                     alignment: Alignment.topRight,
                     child: Tooltip(
-                      message: 'Text',
-                      waitDuration: Duration(seconds: 1),
-                      showDuration: Duration(seconds: 2),
-                      padding: EdgeInsets.all(12),
-                      height: 35,
-                      verticalOffset: 100,
-                      preferBelow: true,
-                      textStyle: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.only(topRight: Radius.circular(10)),
-                          boxShadow: [
-                            new BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 10.0,
-                              offset: new Offset(6.0, 6.0),
-                            ), //BoxShadow
-                          ],
-                          color: Colors.greenAccent[400]), //BoxDecoration
-                      child: Icon(Icons.info_outline_rounded)
-                    ), //Tooltip
+                        message: 'Text',
+                        waitDuration: Duration(seconds: 1),
+                        showDuration: Duration(seconds: 2),
+                        padding: EdgeInsets.all(12),
+                        height: 35,
+                        verticalOffset: 100,
+                        preferBelow: true,
+                        textStyle: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal),
+                        decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(10)),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 10.0,
+                                offset: Offset(6.0, 6.0),
+                              ), //BoxShadow
+                            ],
+                            color: Colors.greenAccent[400]), //BoxDecoration
+                        child:
+                            const Icon(Icons.info_outline_rounded)), //Tooltip
                   ),
                 ],
               ),
@@ -209,22 +209,56 @@ class HomeSVPage extends StatelessWidget {
                     height: 125,
                     width: 150,
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(0.0),
                       child: Column(
                         children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Alingal A',
-                              style: TextStyle(
-                                color: Color.fromRGBO(10, 10, 31, 1),
-                                fontSize: 16.0,
+                          Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 45, left: 75),
+                                child: Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    alignment: Alignment.bottomRight,
+                                    width: 80,
+                                    height: 80,
+                                    decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        bottomRight: Radius.circular(35),
+                                      ),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'assets/AA-Pic.png',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: ParkingArea(33),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0, top: 15),
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  alignment: Alignment.centerLeft,
+                                  child: ParkingArea(33),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0, top: 15),
+                                child: Container(
+                                  alignment: Alignment.topLeft,
+                                  child: const Text(
+                                    'Alingal A',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(10, 10, 31, 1),
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -286,7 +320,7 @@ class HomeSVPage extends StatelessWidget {
                           Container(
                             alignment: Alignment.topLeft,
                             child: const Text(
-                              'Church',
+                              'Burns',
                               style: TextStyle(
                                 color: Color.fromRGBO(10, 10, 31, 1),
                                 fontSize: 16.0,
@@ -408,6 +442,51 @@ class HomeSVPage extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 100,
+            ),
+            Container(
+              width: 300,
+              height: 200,
+              child: Stack(
+                children: [
+                  // Card with rounded corners
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    elevation: 5,
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Center(
+                        child: Text(
+                          'Your Card Content Here',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                  // Image at the bottom right corner
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Container(
+                      width: 50, // Adjust the width of the overlapping image
+                      height: 50, // Adjust the height of the overlapping image
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage(
+                              'assets/AA-Pic.png'), // Replace with your image path
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
