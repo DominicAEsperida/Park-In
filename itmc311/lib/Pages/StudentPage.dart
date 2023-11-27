@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:itmc311/Pages/HomeSVPage.dart';
 import 'package:itmc311/Pages/MapSVPage.dart';
@@ -48,7 +49,7 @@ class _StudentScreenState extends State<StudentScreen> {
                       children: [
                         IconBottomBar(
                           text: "Home",
-                          icon: Icons.home_rounded,
+                          icon: CupertinoIcons.house_fill,
                           selected: selectedIndex == 0,
                           onPressed: () {
                             setState(() {
@@ -58,7 +59,7 @@ class _StudentScreenState extends State<StudentScreen> {
                         ),
                         IconBottomBar(
                           text: "Map",
-                          icon: Icons.map_rounded,
+                          icon: CupertinoIcons.map_fill,
                           selected: selectedIndex == 1,
                           onPressed: () {
                             setState(() {
@@ -104,14 +105,17 @@ class IconBottomBar extends StatelessWidget {
                   ? Color.fromRGBO(0, 0, 255, 1.0)
                   : Color.fromRGBO(0, 0, 255, 0.50)),
         ),
-        Text(
-          text,
-          style: TextStyle(
-            fontFamily: 'BubbleboddyNeue',
-            fontSize: selected ? 15 : 13,
-            color: selected
-                ? Color.fromRGBO(0, 0, 255, 1.0)
-                : Color.fromRGBO(0, 0, 255, 0.50),
+        Padding(
+          padding: selected ? EdgeInsets.only(left: 10) :  EdgeInsets.only(left: 5) ,
+          child: Text(
+            text,
+            style: TextStyle(
+              fontFamily: 'BubbleboddyNeue',
+              fontSize: selected ? 15 : 13,
+              color: selected
+                  ? Color.fromRGBO(0, 0, 255, 1.0)
+                  : Color.fromRGBO(0, 0, 255, 0.50),
+            ),
           ),
         )
       ],
