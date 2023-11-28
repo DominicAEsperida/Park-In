@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:itmc311/Pages/LogInPageSV.dart';
 import 'package:itmc311/Pages/LogInPageAdmin.dart';
+import 'package:itmc311/Pages/SVBottomNav.dart';
 
-
-/* Authored by: Mark Nino Joseph Alden
-Company: CHO P LTD.
-Project: Park-In
-Feature: [PRK-010] Landing Page
-Description: Landing Page for users
- */
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -62,7 +55,7 @@ class LandingPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const LogInPageSV();
+                        return const StudentScreen();
                       },
                     ),
                   );
