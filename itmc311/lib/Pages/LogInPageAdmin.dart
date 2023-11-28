@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itmc311/Pages/AdminPage.dart';
-
-/* Authored by: Mark Nino Joseph A. Alden
-Company: CHO P LTD.
-Project: Park-In
-Feature: [PRK-008] Log In Page Admin
-Description: This is where Admin will input their credentials to log in.
- */
+import 'package:itmc311/Pages/AdminBottomNav.dart';
 
 class LogInPageAdmin extends StatelessWidget {
   const LogInPageAdmin({super.key});
@@ -124,7 +117,7 @@ class LogInPageAdmin extends StatelessWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return AdminPage();
+                          return AdminBottomNav();
                         },
                       ),
                     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itmc311/Pages/StudentPage.dart';
+import 'package:itmc311/Pages/SVBottomNav.dart';
 
 /* Authored by: Mathew P. Talagtag
 Company: CHO P LTD.
