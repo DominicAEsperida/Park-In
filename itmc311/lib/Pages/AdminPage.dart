@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 
-/* Authored by: Emmanuel Dominic A. Esperida
-Company: CHO P LTD.
-Project: Park-In
-Feature: [PRK-009] Admin Page
-Description: This is where the Admin can add and deduct the number available parking slots in the campus.
- */
-
 class AdminScreen extends StatelessWidget {
-  const AdminScreen({super.key});
+  const AdminScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +15,7 @@ class AdminScreen extends StatelessWidget {
 }
 
 class ParkingSpaceManager {
-  static int availableParkingSpaces = 69;
+  static int availableParkingSpaces = 0;
 }
 
 class AdminPage extends StatefulWidget {
@@ -150,61 +143,61 @@ class _AdminPageState extends State<AdminPage> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Ink(
-                  decoration: const ShapeDecoration(
-                    color: Color.fromRGBO(0, 0, 255, 1.0),
-                    shape: CircleBorder(),
-                  ),
-                  child: IconButton(
-                    iconSize: 30.0,
-                    onPressed: decrementSpaces,
-                    icon: const Icon(
-                      Icons.remove,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 5.0),
-                  child: Text(
-                    'Minus',
-                    style: TextStyle(
-                      fontSize: 15.0,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Ink(
-                  decoration: const ShapeDecoration(
-                    color: Color.fromRGBO(0, 0, 255, 1.0),
-                    shape: CircleBorder(),
-                  ),
-                  child: IconButton(
-                    iconSize: 30.0,
-                    onPressed: incrementSpaces,
-                    icon: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 5.0),
-                  child: Text(
-                    'Add',
-                    style: TextStyle(
-                      fontSize: 15.0,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(bottom: 20.0),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: <Widget>[
+          //       Ink(
+          //         decoration: const ShapeDecoration(
+          //           color: Color.fromRGBO(0, 0, 255, 1.0),
+          //           shape: CircleBorder(),
+          //         ),
+          //         child: IconButton(
+          //           iconSize: 30.0,
+          //           onPressed: decrementSpaces,
+          //           icon: const Icon(
+          //             Icons.remove,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //       ),
+          //       const Padding(
+          //         padding: EdgeInsets.only(left: 5.0),
+          //         child: Text(
+          //           'Minus',
+          //           style: TextStyle(
+          //             fontSize: 15.0,
+          //           ),
+          //         ),
+          //       ),
+          //       SizedBox(width: 20),
+          //       Ink(
+          //         decoration: const ShapeDecoration(
+          //           color: Color.fromRGBO(0, 0, 255, 1.0),
+          //           shape: CircleBorder(),
+          //         ),
+          //         child: IconButton(
+          //           iconSize: 30.0,
+          //           onPressed: incrementSpaces,
+          //           icon: const Icon(
+          //             Icons.add,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //       ),
+          //       const Padding(
+          //         padding: EdgeInsets.only(left: 5.0),
+          //         child: Text(
+          //           'Add',
+          //           style: TextStyle(
+          //             fontSize: 15.0,
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           Card(
             color: Colors.white,
             elevation: 10,
@@ -235,30 +228,96 @@ class _AdminPageState extends State<AdminPage> {
                     ),
                     Column(
                       children: [
-                        ParkingArea('Alingal A', 10),
-                        ParkingArea('Alingal B', 5),
-                        ParkingArea('Church', 15),
-                        ParkingArea('Coco Cafe', 8),
-                        ParkingArea('CC', 12),
-                        ParkingArea('Library', 20),
+                        ParkingArea(
+                          name: 'Alingal A',
+                          initialAvailableSpaces: 0,
+                          onIncrement: incrementSpaces,
+                          onDecrement: decrementSpaces,
+                        ),
+                        ParkingArea(
+                          name: 'Alingal B',
+                          initialAvailableSpaces: 0,
+                          onIncrement: incrementSpaces,
+                          onDecrement: decrementSpaces,
+                        ),
+                        ParkingArea(
+                          name: 'Church',
+                          initialAvailableSpaces: 0,
+                          onIncrement: incrementSpaces,
+                          onDecrement: decrementSpaces,
+                        ),
+                        ParkingArea(
+                          name: 'Coco Cafe',
+                          initialAvailableSpaces: 0,
+                          onIncrement: incrementSpaces,
+                          onDecrement: decrementSpaces,
+                        ),
+                        ParkingArea(
+                          name: 'CC',
+                          initialAvailableSpaces: 0,
+                          onIncrement: incrementSpaces,
+                          onDecrement: decrementSpaces,
+                        ),
+                        ParkingArea(
+                          name: 'Library',
+                          initialAvailableSpaces: 0,
+                          onIncrement: incrementSpaces,
+                          onDecrement: decrementSpaces,
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
   }
 }
 
-class ParkingArea extends StatelessWidget {
+class ParkingArea extends StatefulWidget {
   final String name;
-  final int availableSpaces;
+  final int initialAvailableSpaces;
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
 
-  ParkingArea(this.name, this.availableSpaces);
+  ParkingArea({
+    required this.name,
+    required this.initialAvailableSpaces,
+    required this.onIncrement,
+    required this.onDecrement,
+  });
+
+  @override
+  _ParkingAreaState createState() => _ParkingAreaState();
+}
+
+class _ParkingAreaState extends State<ParkingArea> {
+  late int availableSpaces;
+
+  @override
+  void initState() {
+    super.initState();
+    availableSpaces = widget.initialAvailableSpaces;
+  }
+
+  void incrementSpaces() {
+    setState(() {
+      availableSpaces++;
+      widget.onIncrement();
+    });
+  }
+
+  void decrementSpaces() {
+    if (availableSpaces > 0) {
+      setState(() {
+        availableSpaces--;
+        widget.onDecrement();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -266,23 +325,65 @@ class ParkingArea extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
-          child: Text(
-            name,
-            style: const TextStyle(
-              fontSize: 18.0,
-              color: Color.fromRGBO(10, 10, 31, 1),
-            ),
+          child: Row(
+            children: [
+              Text(
+                widget.name,
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  color: Color.fromRGBO(10, 10, 31, 1),
+                ),
+              ),
+              SizedBox(width: 10),
+              Ink(
+                decoration: const ShapeDecoration(
+                  color: Color.fromRGBO(0, 0, 255, 1.0),
+                  shape: CircleBorder(),
+                ),
+                child: IconButton(
+                  iconSize: 20.0,
+                  onPressed: decrementSpaces,
+                  icon: const Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        Text(
-          availableSpaces.toString(),
-          style: const TextStyle(
-            fontFamily: 'Arista',
-            fontSize: 24.0,
-            color: Color.fromRGBO(10, 10, 31, 1),
-          ),
+        Row(
+          children: [
+            Text(
+              availableSpaces.toString(),
+              style: const TextStyle(
+                fontFamily: 'Arista',
+                fontSize: 24.0,
+                color: Color.fromRGBO(10, 10, 31, 1),
+              ),
+            ),
+            SizedBox(width: 10),
+            Ink(
+              decoration: const ShapeDecoration(
+                color: Color.fromRGBO(0, 0, 255, 1.0),
+                shape: CircleBorder(),
+              ),
+              child: IconButton(
+                iconSize: 20.0,
+                onPressed: incrementSpaces,
+                icon: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
   }
+}
+
+void main() {
+  runApp(const AdminScreen());
 }
