@@ -1,48 +1,42 @@
 import 'package:flutter/material.dart';
 
-class Guidepage extends StatelessWidget {
-  const Guidepage({Key? key}) : super(key: key);
+class GuidePage extends StatelessWidget {
+  const GuidePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(234, 247, 255, 1),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: const Text(
+          'Back',
+          style: TextStyle(
+            color: Color.fromRGBO(10, 10, 31, 1),
+            fontSize: 15.0,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_circle_left_outlined,
+            color: Color.fromRGBO(10, 10, 31, 1),
+          ),
+        ),
+      ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 30),
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 1, bottom: 1),
-                ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(Icons.arrow_circle_left_outlined),
-                  color: Colors.black,
-                ),
-                const SizedBox(
-                    width: 1), // Added spacing between IconButton and Text
-                const Text(
-                  'Back',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: 'lighttrial',
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
             const Padding(
               padding: EdgeInsets.fromLTRB(1, 5, 1, 7),
               child: Text(
                 'Need Help?',
                 style: TextStyle(
-                  fontFamily: 'AristaBold',
+                  fontFamily: 'Arista',
                   fontSize: 47.0,
                   color: Color.fromRGBO(12, 12, 255, 1),
                 ),
@@ -71,7 +65,7 @@ class Guidepage extends StatelessWidget {
                 text: const TextSpan(
                   style: TextStyle(
                       fontSize: 15,
-                      fontFamily: 'lighttrial',
+                      fontFamily: 'BubbleboddyNeue',
                       color: Colors.black),
                   children: [
                     TextSpan(
@@ -79,7 +73,7 @@ class Guidepage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'Arista', // Set the font family to 'Arista'
+                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -114,7 +108,7 @@ class Guidepage extends StatelessWidget {
                 text: const TextSpan(
                   style: TextStyle(
                       fontSize: 15,
-                      fontFamily: 'lighttrial',
+                      fontFamily: 'BubbleboddyNeue',
                       color: Colors.black),
                   children: [
                     TextSpan(
@@ -122,7 +116,7 @@ class Guidepage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'Arista', // Set the font family to 'Arista'
+                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -157,7 +151,7 @@ class Guidepage extends StatelessWidget {
                 text: const TextSpan(
                   style: TextStyle(
                       fontSize: 15,
-                      fontFamily: 'lighttrial',
+                      fontFamily: 'BubbleboddyNeue',
                       color: Colors.black),
                   children: [
                     TextSpan(
@@ -165,7 +159,7 @@ class Guidepage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'Arista', // Set the font family to 'Arista'
+                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -200,7 +194,7 @@ class Guidepage extends StatelessWidget {
                 text: const TextSpan(
                   style: TextStyle(
                       fontSize: 15,
-                      fontFamily: 'lighttrial',
+                      fontFamily: 'BubbleboddyNeue',
                       color: Colors.black),
                   children: [
                     TextSpan(
@@ -208,7 +202,7 @@ class Guidepage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'Arista', // Set the font family to 'Arista'
+                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -243,7 +237,7 @@ class Guidepage extends StatelessWidget {
                 text: const TextSpan(
                   style: TextStyle(
                       fontSize: 15,
-                      fontFamily: 'lighttrial',
+                      fontFamily: 'BubbleboddyNeue',
                       color: Colors.black),
                   children: [
                     TextSpan(
@@ -251,7 +245,7 @@ class Guidepage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'Arista', // Set the font family to 'Arista'
+                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -286,7 +280,7 @@ class Guidepage extends StatelessWidget {
                 text: const TextSpan(
                   style: TextStyle(
                       fontSize: 15,
-                      fontFamily: 'lighttrial',
+                      fontFamily: 'BubbleboddyNeue',
                       color: Colors.black),
                   children: [
                     TextSpan(
@@ -294,7 +288,7 @@ class Guidepage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'Arista', // Set the font family to 'Arista'
+                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
