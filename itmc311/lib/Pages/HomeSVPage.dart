@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itmc311/Pages/AdminPage.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:itmc311/Pages/GuidePage.dart';
 
 class HomeSVPage extends StatelessWidget {
   const HomeSVPage({super.key});
@@ -31,52 +31,17 @@ class HomeSVPage extends StatelessWidget {
                 Container(
                   alignment: Alignment.topRight,
                   margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton2(
-                      customButton: const Icon(
-                        Icons.more_vert_rounded,
-                        size: 30,
-                        color: Color.fromRGBO(10, 10, 31, 1),
-                      ),
-                      items: [
-                        ...MenuItems.firstItems.map(
-                          (item) => DropdownMenuItem<MenuItem>(
-                            value: item,
-                            child: MenuItems.buildItem(item),
-                          ),
+                  child: IconButton(
+                    icon: const Icon(Icons.help_outline_rounded),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const GuidePage();
+                          },
                         ),
-                        const DropdownMenuItem<Divider>(
-                            enabled: false, child: Divider()),
-                        ...MenuItems.secondItems.map(
-                          (item) => DropdownMenuItem<MenuItem>(
-                            value: item,
-                            child: MenuItems.buildItem(item),
-                          ),
-                        ),
-                      ],
-                      onChanged: (value) {
-                        MenuItems.onChanged(context, value! as MenuItem);
-                      },
-                      dropdownStyleData: DropdownStyleData(
-                        width: 160,
-                        padding: const EdgeInsets.symmetric(vertical: 6),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: const Color.fromRGBO(234, 247, 255, 1),
-                        ),
-                        offset: const Offset(0, 8),
-                      ),
-                      menuItemStyleData: MenuItemStyleData(
-                        customHeights: [
-                          ...List<double>.filled(
-                              MenuItems.firstItems.length, 48),
-                          8,
-                          ...List<double>.filled(
-                              MenuItems.secondItems.length, 48),
-                        ],
-                        padding: const EdgeInsets.only(left: 16, right: 16),
-                      ),
-                    ),
+                      );
+                    },
                   ),
                 ),
               ],
@@ -215,7 +180,8 @@ class HomeSVPage extends StatelessWidget {
                           Stack(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 45, left: 75),
+                                padding:
+                                    const EdgeInsets.only(top: 45, left: 75),
                                 child: Positioned(
                                   bottom: 0,
                                   right: 0,
@@ -238,7 +204,8 @@ class HomeSVPage extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 20.0, top: 15),
+                                padding:
+                                    const EdgeInsets.only(left: 20.0, top: 15),
                                 child: Container(
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.centerLeft,
@@ -246,7 +213,8 @@ class HomeSVPage extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 20.0, top: 15),
+                                padding:
+                                    const EdgeInsets.only(left: 20.0, top: 15),
                                 child: Container(
                                   alignment: Alignment.topLeft,
                                   child: const Text(
@@ -445,48 +413,6 @@ class HomeSVPage extends StatelessWidget {
             const SizedBox(
               height: 100,
             ),
-            Container(
-              width: 300,
-              height: 200,
-              child: Stack(
-                children: [
-                  // Card with rounded corners
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    elevation: 5,
-                    child: Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: Center(
-                        child: Text(
-                          'Your Card Content Here',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ),
-                    ),
-                  ),
-                  // Image at the bottom right corner
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Container(
-                      width: 50, // Adjust the width of the overlapping image
-                      height: 50, // Adjust the height of the overlapping image
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage(
-                              'assets/AA-Pic.png'), // Replace with your image path
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       ),
@@ -517,57 +443,5 @@ class ParkingArea extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-class MenuItem {
-  const MenuItem({
-    required this.text,
-    required this.icon,
-  });
-
-  final String text;
-  final IconData icon;
-}
-
-abstract class MenuItems {
-  static const List<MenuItem> firstItems = [user, help];
-  static const List<MenuItem> secondItems = [logout];
-
-  static const user = MenuItem(text: 'User', icon: Icons.person);
-  static const help = MenuItem(text: 'Help', icon: Icons.help);
-  static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
-
-  static Widget buildItem(MenuItem item) {
-    return Row(
-      children: [
-        Icon(item.icon, color: const Color.fromRGBO(10, 10, 31, 1), size: 22),
-        const SizedBox(
-          width: 10,
-        ),
-        Expanded(
-          child: Text(
-            item.text,
-            style: const TextStyle(
-              color: Color.fromRGBO(10, 10, 31, 1),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  static void onChanged(BuildContext context, MenuItem item) {
-    switch (item) {
-      case MenuItems.user:
-        //Do something
-        break;
-      case MenuItems.help:
-        Navigator.pushNamed(context, '/help');
-        break;
-      case MenuItems.logout:
-        Navigator.pushNamed(context, '/logout');
-        break;
-    }
   }
 }

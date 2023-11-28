@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:babylonjs_viewer/babylonjs_viewer.dart';
+import 'package:itmc311/Pages/GuidePage.dart';
 
 class MapSVPage extends StatefulWidget {
   const MapSVPage({super.key});
@@ -213,10 +214,21 @@ class _MapSVPageState extends State<MapSVPage> {
                 ),
               ),
               Container(
-                alignment: Alignment.topRight,
-                margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
-                child: Icon(Icons.help_outline_rounded),
-              ),
+                  alignment: Alignment.topRight,
+                  margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+                  child: IconButton(
+                    icon: const Icon(Icons.help_outline_rounded),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return const GuidePage();
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
             ],
           ),
           SizedBox(
