@@ -79,7 +79,9 @@ flutter:
   fonts:
     - family: BubbleboddyNeue
       fonts:
-        - asset: fonts/bubbleboddyneue-regular-trial.ttf
+        - asset: fonts/Bubbleboddyneue-regular-trial.ttf
+        - asset: fonts/BubbleboddyNeue-Light Trial.ttf
+          weight: 300
 
     - family: Inter
       fonts:
