@@ -1,9 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:itmc311/Pages/AdminPage.dart';
 import 'package:itmc311/Pages/GuidePage.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-class HomeSVPage extends StatelessWidget {
-  const HomeSVPage({super.key});
+class HomeSVPage extends StatefulWidget {
+  const HomeSVPage({Key? key}) : super(key: key);
+
+  @override
+  _HomeSVPageState createState() => _HomeSVPageState();
+}
+
+class _HomeSVPageState extends State<HomeSVPage> {
+  final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+
+  @override
+  void initState() {
+    super.initState();
+    updateAvailableSpaces();
+  }
+
+  Future<void> updateAvailableSpaces() async {
+    int? alingalAAvailableSpaces = await fetchDataFromDatabase("Alingal A");
+    ParkingAreaSpaceManager.updateAvailableSpaces(
+        "Alingal A", alingalAAvailableSpaces);
+    int? alingalBAvailableSpaces = await fetchDataFromDatabase("Alingal B");
+    ParkingAreaSpaceManager.updateAvailableSpaces(
+        "Alingal B", alingalBAvailableSpaces);
+    int? burnsAvailableSpaces = await fetchDataFromDatabase("Burns");
+    ParkingAreaSpaceManager.updateAvailableSpaces(
+        "Burns", burnsAvailableSpaces);
+    int? cocoCafeAvailableSpaces = await fetchDataFromDatabase("Coco Cafe");
+    ParkingAreaSpaceManager.updateAvailableSpaces(
+        "Coco Cafe", cocoCafeAvailableSpaces);
+    int? ccavailableSpaces = await fetchDataFromDatabase("CC");
+    ParkingAreaSpaceManager.updateAvailableSpaces("CC", ccavailableSpaces);
+    int? libraryAvailableSpaces = await fetchDataFromDatabase("Library");
+    ParkingAreaSpaceManager.updateAvailableSpaces(
+        "Library", libraryAvailableSpaces);
+    if (mounted) {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +125,8 @@ class HomeSVPage extends StatelessWidget {
                           thickness: 2.0,
                         ),
                         Text(
-                          ParkingSpaceManager.availableParkingSpaces.toString(),
+                          ParkingAreaSpaceManager.totalAvailableParkingSpaces
+                              .toString(),
                           style: const TextStyle(
                             fontFamily: 'Arista',
                             fontSize: 125,
@@ -151,11 +188,10 @@ class HomeSVPage extends StatelessWidget {
                                 color: Colors.grey,
                                 blurRadius: 10.0,
                                 offset: Offset(6.0, 6.0),
-                              ), //BoxShadow
+                              ),
                             ],
-                            color: Colors.greenAccent[400]), //BoxDecoration
-                        child:
-                            const Icon(Icons.info_outline_rounded)), //Tooltip
+                            color: Colors.greenAccent[400]),
+                        child: const Icon(Icons.info_outline_rounded)),
                   ),
                 ],
               ),
@@ -209,7 +245,9 @@ class HomeSVPage extends StatelessWidget {
                                 child: Container(
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.centerLeft,
-                                  child: ParkingArea(33),
+                                  child: ParkingArea(ParkingAreaSpaceManager
+                                          .availableParkingSpacesAlingalA ??
+                                      0),
                                 ),
                               ),
                               Padding(
@@ -259,7 +297,9 @@ class HomeSVPage extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
-                            child: ParkingArea(7),
+                            child: ParkingArea(ParkingAreaSpaceManager
+                                    .availableParkingSpacesAlingalB ??
+                                0),
                           ),
                         ],
                       ),
@@ -297,7 +337,9 @@ class HomeSVPage extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
-                            child: ParkingArea(7),
+                            child: ParkingArea(ParkingAreaSpaceManager
+                                    .availableParkingSpacesBurns ??
+                                0),
                           ),
                         ],
                       ),
@@ -330,7 +372,9 @@ class HomeSVPage extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
-                            child: ParkingArea(15),
+                            child: ParkingArea(ParkingAreaSpaceManager
+                                    .availableParkingSpacesCocoCafe ??
+                                0),
                           ),
                         ],
                       ),
@@ -368,7 +412,9 @@ class HomeSVPage extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
-                            child: ParkingArea(19),
+                            child: ParkingArea(ParkingAreaSpaceManager
+                                    .availableParkingSpacesCC ??
+                                0),
                           ),
                         ],
                       ),
@@ -401,7 +447,9 @@ class HomeSVPage extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
-                            child: ParkingArea(7),
+                            child: ParkingArea(ParkingAreaSpaceManager
+                                    .availableParkingSpacesLibrary ??
+                                0),
                           ),
                         ],
                       ),
@@ -443,5 +491,69 @@ class ParkingArea extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class ParkingAreaSpaceManager {
+  static int? totalAvailableParkingSpaces;
+  static int? availableParkingSpacesAlingalA;
+  static int? availableParkingSpacesAlingalB;
+  static int? availableParkingSpacesCC;
+  static int? availableParkingSpacesBurns;
+  static int? availableParkingSpacesCocoCafe;
+  static int? availableParkingSpacesLibrary;
+
+  static void updateAvailableSpaces(String parkingArea, int? availableSpaces) {
+    switch (parkingArea) {
+      case "Alingal A":
+        availableParkingSpacesAlingalA = availableSpaces;
+        break;
+      case "Alingal B":
+        availableParkingSpacesAlingalB = availableSpaces;
+        break;
+      case "CC":
+        availableParkingSpacesCC = availableSpaces;
+        break;
+      case "Burns":
+        availableParkingSpacesBurns = availableSpaces;
+        break;
+      case "Coco Cafe":
+        availableParkingSpacesCocoCafe = availableSpaces;
+        break;
+      case "Library":
+        availableParkingSpacesLibrary = availableSpaces;
+        break;
+    }
+    calculateTotalAvailableSpaces();
+  }
+
+  static void calculateTotalAvailableSpaces() {
+    totalAvailableParkingSpaces = 0;
+
+    totalAvailableParkingSpaces = (totalAvailableParkingSpaces ?? 0) +
+        (availableParkingSpacesAlingalA ?? 0) +
+        (availableParkingSpacesAlingalB ?? 0) +
+        (availableParkingSpacesCC ?? 0) +
+        (availableParkingSpacesBurns ?? 0) +
+        (availableParkingSpacesCocoCafe ?? 0) +
+        (availableParkingSpacesLibrary ?? 0);
+  }
+}
+
+Future<int?> fetchDataFromDatabase(String parkingAreaName) async {
+  try {
+    DatabaseEvent event =
+        await FirebaseDatabase.instance.ref().child(parkingAreaName).once();
+    DataSnapshot snapshot = event.snapshot;
+
+    if (snapshot.value != null) {
+      int parsedValue = int.parse(snapshot.value.toString());
+      return parsedValue;
+    } else {
+      return null;
+    }
+  } catch (e) {
+    print("Error fetching data: $e");
+    return null;
   }
 }

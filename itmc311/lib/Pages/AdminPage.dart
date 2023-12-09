@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class AdminScreen extends StatelessWidget {
   const AdminScreen({Key? key});
@@ -25,9 +26,12 @@ class AdminPage extends StatefulWidget {
 }
 
 class _AdminPageState extends State<AdminPage> {
+  final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+
   void incrementSpaces() {
     setState(() {
       ParkingSpaceManager.availableParkingSpaces++;
+      updateDatabase();
     });
   }
 
@@ -35,35 +39,77 @@ class _AdminPageState extends State<AdminPage> {
     if (ParkingSpaceManager.availableParkingSpaces > 0) {
       setState(() {
         ParkingSpaceManager.availableParkingSpaces--;
+        updateDatabase();
       });
     }
+  }
+
+  void updateDatabase() {
+    databaseReference
+        .child('availableParkingSpaces')
+        .set(ParkingSpaceManager.availableParkingSpaces);
+  }
+
+  void calculateTotalAvailableSpaces() async {
+    int totalAvailableSpaces = 0;
+
+    List<String> parkingAreaNames = [
+      'Alingal A',
+      'Alingal B',
+      'Burns',
+      'Coco Cafe',
+      'CC',
+      'Library',
+    ];
+
+    for (String parkingAreaName in parkingAreaNames) {
+      int? spaces = await fetchDataFromDatabase(parkingAreaName);
+      if (spaces != null) {
+        totalAvailableSpaces += spaces;
+      }
+    }
+
+    setState(() {
+      ParkingSpaceManager.availableParkingSpaces = totalAvailableSpaces;
+    });
+  }
+
+  void initTotalAvailableSpaces() {
+    calculateTotalAvailableSpaces();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initTotalAvailableSpaces();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(234, 247, 255, 1),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 50),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  alignment: Alignment.topLeft,
-                  margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
-                  child: const Text(
-                    'Home',
-                    style: TextStyle(
-                      fontFamily: 'Arista',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 26,
-                      color: Color.fromRGBO(10, 10, 31, 1),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 50),
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+                    child: const Text(
+                      'Home',
+                      style: TextStyle(
+                        fontFamily: 'Arista',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 26,
+                        color: Color.fromRGBO(10, 10, 31, 1),
+                      ),
                     ),
                   ),
-                ),
-                Container(
+                  Container(
                     alignment: Alignment.topRight,
                     margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
                     child: DropdownButtonHideUnderline(
@@ -114,32 +160,87 @@ class _AdminPageState extends State<AdminPage> {
                       ),
                     ),
                   ),
-              ],
-            ),
-            Container(
-              height: 260,
-              width: 320,
-              margin: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 20.0),
-              child: Card(
-                color: Colors.transparent,
+                ],
+              ),
+              Container(
+                height: 260,
+                width: 320,
+                margin: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 20.0),
+                child: Card(
+                  color: Colors.transparent,
+                  elevation: 10,
+                  shadowColor: Colors.black87,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(35.0),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color.fromRGBO(0, 0, 255, 1.0),
+                          Color.fromRGBO(0, 0, 255, 0.80),
+                          Color.fromRGBO(0, 0, 255, 0.30),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(35.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: const Text(
+                              'Available Parking Spaces',
+                              style: TextStyle(
+                                color: Color.fromRGBO(235, 235, 235, 1.0),
+                                fontSize: 20.0,
+                              ),
+                            ),
+                          ),
+                          const Divider(
+                            color: Color.fromRGBO(235, 235, 235, 1.0),
+                            thickness: 2.0,
+                          ),
+                          Text(
+                            ParkingSpaceManager.availableParkingSpaces
+                                .toString(),
+                            style: const TextStyle(
+                              fontFamily: 'Arista',
+                              fontSize: 125,
+                              color: Color.fromRGBO(235, 235, 235, 1.0),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(top: 5.0),
+                            alignment: Alignment.bottomRight,
+                            child: const Text(
+                              '**Approximately',
+                              style: TextStyle(
+                                fontStyle: FontStyle.italic,
+                                color: Color.fromRGBO(235, 235, 235, 0.50),
+                                fontSize: 12.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Card(
+                color: Colors.white,
                 elevation: 10,
                 shadowColor: Colors.black87,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(35.0),
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color.fromRGBO(0, 0, 255, 1.0),
-                        Color.fromRGBO(0, 0, 255, 0.80),
-                        Color.fromRGBO(0, 0, 255, 0.30),
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                    borderRadius: BorderRadius.circular(35.0),
-                  ),
+                child: SizedBox(
+                  height: 400,
+                  width: 320,
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
@@ -147,120 +248,182 @@ class _AdminPageState extends State<AdminPage> {
                         Container(
                           alignment: Alignment.topLeft,
                           child: const Text(
-                            'Available Parking Spaces',
+                            'Parking Areas',
                             style: TextStyle(
-                              color: Color.fromRGBO(235, 235, 235, 1.0),
+                              color: Color.fromRGBO(10, 10, 31, 1),
                               fontSize: 20.0,
                             ),
                           ),
                         ),
                         const Divider(
-                          color: Color.fromRGBO(235, 235, 235, 1.0),
+                          color: Color.fromRGBO(10, 10, 31, 1),
                           thickness: 2.0,
                         ),
-                        Text(
-                          ParkingSpaceManager.availableParkingSpaces.toString(),
-                          style: const TextStyle(
-                            fontFamily: 'Arista',
-                            fontSize: 125,
-                            color: Color.fromRGBO(235, 235, 235, 1.0),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(top: 5.0),
-                          alignment: Alignment.bottomRight,
-                          child: const Text(
-                            '**Approximately',
-                            style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              color: Color.fromRGBO(235, 235, 235, 0.50),
-                              fontSize: 12.0,
+                        Column(
+                          children: [
+                            FutureBuilder(
+                              future: fetchDataFromDatabase('Alingal A'),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<int?> snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  int initialAvailableSpaces =
+                                      snapshot.data ?? 0;
+                                  return ParkingArea(
+                                    name: 'Alingal A',
+                                    initialAvailableSpaces:
+                                        initialAvailableSpaces,
+                                    onIncrement: incrementSpaces,
+                                    onDecrement: decrementSpaces,
+                                  );
+                                }
+                              },
                             ),
-                          ),
+                            FutureBuilder(
+                              future: fetchDataFromDatabase('Alingal B'),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<int?> snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  int initialAvailableSpaces =
+                                      snapshot.data ?? 0;
+                                  return ParkingArea(
+                                    name: 'Alingal B',
+                                    initialAvailableSpaces:
+                                        initialAvailableSpaces,
+                                    onIncrement: incrementSpaces,
+                                    onDecrement: decrementSpaces,
+                                  );
+                                }
+                              },
+                            ),
+                            FutureBuilder(
+                              future: fetchDataFromDatabase('Burns'),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<int?> snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  int initialAvailableSpaces =
+                                      snapshot.data ?? 0;
+                                  return ParkingArea(
+                                    name: 'Burns',
+                                    initialAvailableSpaces:
+                                        initialAvailableSpaces,
+                                    onIncrement: incrementSpaces,
+                                    onDecrement: decrementSpaces,
+                                  );
+                                }
+                              },
+                            ),
+                            FutureBuilder(
+                              future: fetchDataFromDatabase('Coco Cafe'),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<int?> snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  int initialAvailableSpaces =
+                                      snapshot.data ?? 0;
+                                  return ParkingArea(
+                                    name: 'Coco Cafe',
+                                    initialAvailableSpaces:
+                                        initialAvailableSpaces,
+                                    onIncrement: incrementSpaces,
+                                    onDecrement: decrementSpaces,
+                                  );
+                                }
+                              },
+                            ),
+                            FutureBuilder(
+                              future: fetchDataFromDatabase('CC'),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<int?> snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  int initialAvailableSpaces =
+                                      snapshot.data ?? 0;
+                                  return ParkingArea(
+                                    name: 'CC',
+                                    initialAvailableSpaces:
+                                        initialAvailableSpaces,
+                                    onIncrement: incrementSpaces,
+                                    onDecrement: decrementSpaces,
+                                  );
+                                }
+                              },
+                            ),
+                            FutureBuilder(
+                              future: fetchDataFromDatabase('Library'),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<int?> snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  int initialAvailableSpaces =
+                                      snapshot.data ?? 0;
+                                  return ParkingArea(
+                                    name: 'Library',
+                                    initialAvailableSpaces:
+                                        initialAvailableSpaces,
+                                    onIncrement: incrementSpaces,
+                                    onDecrement: decrementSpaces,
+                                  );
+                                }
+                              },
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
                 ),
               ),
-            ),
-            Card(
-              color: Colors.white,
-              elevation: 10,
-              shadowColor: Colors.black87,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(35.0),
-              ),
-              child: SizedBox(
-                height: 360,
-                width: 320,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: const Text(
-                          'Parking Areas',
-                          style: TextStyle(
-                            color: Color.fromRGBO(10, 10, 31, 1),
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ),
-                      const Divider(
-                        color: Color.fromRGBO(10, 10, 31, 1),
-                        thickness: 2.0,
-                      ),
-                      Column(
-                        children: [
-                          ParkingArea(
-                            name: 'Alingal A',
-                            initialAvailableSpaces: 0,
-                            onIncrement: incrementSpaces,
-                            onDecrement: decrementSpaces,
-                          ),
-                          ParkingArea(
-                            name: 'Alingal B',
-                            initialAvailableSpaces: 0,
-                            onIncrement: incrementSpaces,
-                            onDecrement: decrementSpaces,
-                          ),
-                          ParkingArea(
-                            name: 'Burns',
-                            initialAvailableSpaces: 0,
-                            onIncrement: incrementSpaces,
-                            onDecrement: decrementSpaces,
-                          ),
-                          ParkingArea(
-                            name: 'Coco Cafe',
-                            initialAvailableSpaces: 0,
-                            onIncrement: incrementSpaces,
-                            onDecrement: decrementSpaces,
-                          ),
-                          ParkingArea(
-                            name: 'CC',
-                            initialAvailableSpaces: 0,
-                            onIncrement: incrementSpaces,
-                            onDecrement: decrementSpaces,
-                          ),
-                          ParkingArea(
-                            name: 'Library',
-                            initialAvailableSpaces: 0,
-                            onIncrement: incrementSpaces,
-                            onDecrement: decrementSpaces,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
+              SizedBox(height: 100),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  Future<int?> fetchDataFromDatabase(String parkingAreaName) async {
+    try {
+      DatabaseEvent event =
+          await databaseReference.child(parkingAreaName).once();
+      DataSnapshot snapshot = event.snapshot;
+
+      if (snapshot.value != null) {
+        int parsedValue = int.parse(snapshot.value.toString());
+        return parsedValue;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      print("Error fetching data: $e");
+      return null;
+    }
   }
 }
 
@@ -282,18 +445,31 @@ class ParkingArea extends StatefulWidget {
 }
 
 class _ParkingAreaState extends State<ParkingArea> {
+  final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
   late int availableSpaces;
 
   @override
   void initState() {
     super.initState();
     availableSpaces = widget.initialAvailableSpaces;
+    databaseReference.child(widget.name).set(widget.initialAvailableSpaces);
   }
 
   void incrementSpaces() {
     setState(() {
-      availableSpaces++;
-      widget.onIncrement();
+      if (availableSpaces < 20) {
+        availableSpaces++;
+        widget.onIncrement();
+        updateDatabase();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content:
+                Text('Parking spaces limit (20) reached for ${widget.name}.'),
+            duration: const Duration(seconds: 1),
+          ),
+        );
+      }
     });
   }
 
@@ -302,8 +478,13 @@ class _ParkingAreaState extends State<ParkingArea> {
       setState(() {
         availableSpaces--;
         widget.onDecrement();
+        updateDatabase();
       });
     }
+  }
+
+  void updateDatabase() {
+    databaseReference.child(widget.name).set(availableSpaces);
   }
 
   @override
