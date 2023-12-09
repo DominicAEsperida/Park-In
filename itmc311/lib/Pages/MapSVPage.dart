@@ -71,7 +71,7 @@ class _MapSVPageState extends State<MapSVPage> {
         )
       ],
     ),
-    const Column(
+    Column(
       children: [
         Row(
           children: [
@@ -87,9 +87,19 @@ class _MapSVPageState extends State<MapSVPage> {
             ),
           ],
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 500,
+              width: 310,
+              child: BabylonJSViewer(src: "assets/burns.glb"),
+            ),
+          ],
+        )
       ],
     ),
-    const Column(
+    Column(
       children: [
         Row(
           children: [
@@ -105,6 +115,16 @@ class _MapSVPageState extends State<MapSVPage> {
             ),
           ],
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 500,
+              width: 310,
+              child: BabylonJSViewer(src: "assets/coco.glb"),
+            ),
+          ],
+        )
       ],
     ),
     Column(
@@ -136,7 +156,7 @@ class _MapSVPageState extends State<MapSVPage> {
         )
       ],
     ),
-    const Column(
+    Column(
       children: [
         Row(
           children: [
@@ -146,12 +166,22 @@ class _MapSVPageState extends State<MapSVPage> {
                 'Library',
                 style: TextStyle(
                   fontSize: 26,
-                  color: Color.fromRGBO(10, 10, 31, 1 ),
+                  color: Color.fromRGBO(10, 10, 31, 1),
                 ),
               ),
             ),
           ],
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 500,
+              width: 310,
+              child: BabylonJSViewer(src: "assets/lib2.glb"),
+            ),
+          ],
+        )
       ],
     ),
   ];
@@ -168,7 +198,7 @@ class _MapSVPageState extends State<MapSVPage> {
       }
 
       pageController.animateToPage(pageNum,
-          duration:  Duration(seconds: 10),
+          duration: Duration(seconds: 10),
           curve: Curves.fastEaseInToSlowEaseOut);
 
       pageNum++;
@@ -214,21 +244,21 @@ class _MapSVPageState extends State<MapSVPage> {
                 ),
               ),
               Container(
-                  alignment: Alignment.topRight,
-                  margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
-                  child: IconButton(
-                    icon: const Icon(Icons.help_outline_rounded),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) {
-                            return const GuidePage();
-                          },
-                        ),
-                      );
-                    },
-                  ),
+                alignment: Alignment.topRight,
+                margin: const EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+                child: IconButton(
+                  icon: const Icon(Icons.help_outline_rounded),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const GuidePage();
+                        },
+                      ),
+                    );
+                  },
                 ),
+              ),
             ],
           ),
           SizedBox(
