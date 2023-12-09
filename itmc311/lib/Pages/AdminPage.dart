@@ -103,7 +103,6 @@ class _AdminPageState extends State<AdminPage> {
                       'Home',
                       style: TextStyle(
                         fontFamily: 'Arista',
-                        fontWeight: FontWeight.w700,
                         fontSize: 26,
                         color: Color.fromRGBO(10, 10, 31, 1),
                       ),
