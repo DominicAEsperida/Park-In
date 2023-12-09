@@ -58,7 +58,6 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     'Home',
                     style: TextStyle(
                       fontFamily: 'Arista',
-                      fontWeight: FontWeight.w700,
                       fontSize: 26,
                       color: Color.fromRGBO(10, 10, 31, 1),
                     ),
@@ -134,7 +133,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.only(top: 5.0),
+                          padding: const EdgeInsets.only(top: 12.0),
                           alignment: Alignment.bottomRight,
                           child: const Text(
                             '**Approximately',
@@ -209,65 +208,62 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   child: SizedBox(
                     height: 125,
                     width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: Column(
-                        children: [
-                          Stack(
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 45, left: 75),
-                                child: Positioned(
-                                  bottom: 0,
-                                  right: 0,
-                                  child: Container(
-                                    alignment: Alignment.bottomRight,
-                                    width: 80,
-                                    height: 80,
-                                    decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(35),
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 45, left: 70),
+                              child: Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  alignment: Alignment.bottomRight,
+                                  width: 90,
+                                  height: 80,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(35),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        'assets/Alingal-A.png',
                                       ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          'assets/AA-Pic.png',
-                                        ),
-                                        fit: BoxFit.cover,
-                                      ),
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 20.0, top: 15),
-                                child: Container(
-                                  margin: EdgeInsets.only(top: 20),
-                                  alignment: Alignment.centerLeft,
-                                  child: ParkingArea(ParkingAreaSpaceManager
-                                          .availableParkingSpacesAlingalA ??
-                                      0),
-                                ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                margin: EdgeInsets.only(top: 20),
+                                alignment: Alignment.centerLeft,
+                                child: ParkingArea(ParkingAreaSpaceManager
+                                        .availableParkingSpacesAlingalA ??
+                                    0),
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 20.0, top: 15),
-                                child: Container(
-                                  alignment: Alignment.topLeft,
-                                  child: const Text(
-                                    'Alingal A',
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(10, 10, 31, 1),
-                                      fontSize: 16.0,
-                                    ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Alingal A',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(10, 10, 31, 1),
+                                    fontSize: 16.0,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -281,28 +277,62 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   child: SizedBox(
                     height: 125,
                     width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Alingal B',
-                              style: TextStyle(
-                                color: Color.fromRGBO(10, 10, 31, 1),
-                                fontSize: 16.0,
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 45, left: 75),
+                              child: Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  alignment: Alignment.bottomRight,
+                                  width: 80,
+                                  height: 80,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(35),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        'assets/Alingal-B.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: ParkingArea(ParkingAreaSpaceManager
-                                    .availableParkingSpacesAlingalB ??
-                                0),
-                          ),
-                        ],
-                      ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                margin: EdgeInsets.only(top: 20),
+                                alignment: Alignment.centerLeft,
+                                child: ParkingArea(ParkingAreaSpaceManager
+                                        .availableParkingSpacesAlingalB ??
+                                    0),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Alingal B',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(10, 10, 31, 1),
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -321,28 +351,62 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   child: SizedBox(
                     height: 125,
                     width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Burns',
-                              style: TextStyle(
-                                color: Color.fromRGBO(10, 10, 31, 1),
-                                fontSize: 16.0,
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 45, left: 75),
+                              child: Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  alignment: Alignment.bottomRight,
+                                  width: 80,
+                                  height: 80,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(35),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        'assets/Burns.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: ParkingArea(ParkingAreaSpaceManager
-                                    .availableParkingSpacesBurns ??
-                                0),
-                          ),
-                        ],
-                      ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                margin: EdgeInsets.only(top: 20),
+                                alignment: Alignment.centerLeft,
+                                child: ParkingArea(ParkingAreaSpaceManager
+                                        .availableParkingSpacesBurns ??
+                                    0),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Burns',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(10, 10, 31, 1),
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -356,28 +420,62 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   child: SizedBox(
                     height: 125,
                     width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Coco Cafe',
-                              style: TextStyle(
-                                color: Color.fromRGBO(10, 10, 31, 1),
-                                fontSize: 16.0,
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 45, left: 75),
+                              child: Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  alignment: Alignment.bottomRight,
+                                  width: 80,
+                                  height: 80,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(35),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        'assets/Coco.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: ParkingArea(ParkingAreaSpaceManager
-                                    .availableParkingSpacesCocoCafe ??
-                                0),
-                          ),
-                        ],
-                      ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                margin: EdgeInsets.only(top: 20),
+                                alignment: Alignment.centerLeft,
+                                child: ParkingArea(ParkingAreaSpaceManager
+                                        .availableParkingSpacesCocoCafe ??
+                                    0),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Coco',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(10, 10, 31, 1),
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -396,28 +494,62 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   child: SizedBox(
                     height: 125,
                     width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Covered Court',
-                              style: TextStyle(
-                                color: Color.fromRGBO(10, 10, 31, 1),
-                                fontSize: 16.0,
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 45, left: 75),
+                              child: Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  alignment: Alignment.bottomRight,
+                                  width: 80,
+                                  height: 80,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(35),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        'assets/CC.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: ParkingArea(ParkingAreaSpaceManager
-                                    .availableParkingSpacesCC ??
-                                0),
-                          ),
-                        ],
-                      ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                margin: EdgeInsets.only(top: 20),
+                                alignment: Alignment.centerLeft,
+                                child: ParkingArea(ParkingAreaSpaceManager
+                                        .availableParkingSpacesCC ??
+                                    0),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Covered Court',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(10, 10, 31, 1),
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -431,28 +563,62 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   child: SizedBox(
                     height: 125,
                     width: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Library',
-                              style: TextStyle(
-                                color: Color.fromRGBO(10, 10, 31, 1),
-                                fontSize: 16.0,
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 45, left: 75),
+                              child: Positioned(
+                                bottom: 0,
+                                right: 0,
+                                child: Container(
+                                  alignment: Alignment.bottomRight,
+                                  width: 80,
+                                  height: 80,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(35),
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        'assets/Library.png',
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: ParkingArea(ParkingAreaSpaceManager
-                                    .availableParkingSpacesLibrary ??
-                                0),
-                          ),
-                        ],
-                      ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                margin: EdgeInsets.only(top: 20),
+                                alignment: Alignment.centerLeft,
+                                child: ParkingArea(ParkingAreaSpaceManager
+                                        .availableParkingSpacesLibrary ??
+                                    0),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 20.0, top: 15),
+                              child: Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Library',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(10, 10, 31, 1),
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -484,7 +650,7 @@ class ParkingArea extends StatelessWidget {
             availableSpaces.toString(),
             style: const TextStyle(
               fontFamily: 'Arista',
-              fontSize: 45.0,
+              fontSize: 50.0,
               color: Color.fromRGBO(10, 10, 31, 1),
             ),
           ),
