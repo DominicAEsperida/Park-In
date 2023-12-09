@@ -73,13 +73,17 @@ class GuidePage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
+                        fontFamily:
+                            'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     TextSpan(
                       text:
                           " Look for a parking\nspace that matches the size of your vehicle.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ],
                 ),
@@ -116,13 +120,17 @@ class GuidePage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
+                        fontFamily:
+                            'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     TextSpan(
                       text:
                           " Leave enough\nspace between your vehicle and others to\nallow for easy entry and exit. Be\nconsiderate of neighboring cars.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ],
                 ),
@@ -159,13 +167,17 @@ class GuidePage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
+                        fontFamily:
+                            'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     TextSpan(
                       text:
                           " Before\nleaving your vehicle, turn off the engine,\nremove the keys, and lock the doors.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ],
                 ),
@@ -202,13 +214,17 @@ class GuidePage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
+                        fontFamily:
+                            'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     TextSpan(
                       text:
                           " If you must leave\nvaluables in your vehicle, secure them out\nof sight to deter theft.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ],
                 ),
@@ -245,13 +261,17 @@ class GuidePage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
+                        fontFamily:
+                            'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     TextSpan(
                       text:
                           " If a parking\nspot is marked as reserved for specific\nindividuals or purposes, respect those\nreservations.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ],
                 ),
@@ -288,13 +308,17 @@ class GuidePage extends StatelessWidget {
                       style: TextStyle(
                         color: Color.fromRGBO(
                             12, 12, 255, 1), // Set the color to blue
-                        fontFamily: 'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
+                        fontFamily:
+                            'BubbleboddyNeue', // Set the font family to 'BubbleboddyNeue'
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     TextSpan(
                       text:
                           " Always\nfollow the posted speed limits on road\nsigns.",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                      ),
                     ),
                   ],
                 ),
