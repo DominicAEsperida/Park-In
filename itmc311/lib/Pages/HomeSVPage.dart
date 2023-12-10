@@ -152,8 +152,9 @@ class _HomeSVPageState extends State<HomeSVPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(50, 0, 0, 10),
+              padding: const EdgeInsets.fromLTRB(50, 0, 50, 10),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     alignment: Alignment.topLeft,
@@ -168,30 +169,27 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   Container(
                     alignment: Alignment.topRight,
                     child: Tooltip(
-                        message: 'Text',
-                        waitDuration: Duration(seconds: 1),
-                        showDuration: Duration(seconds: 2),
-                        padding: EdgeInsets.all(12),
-                        height: 35,
-                        verticalOffset: 100,
-                        preferBelow: true,
-                        textStyle: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal),
-                        decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(10)),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.grey,
-                                blurRadius: 10.0,
-                                offset: Offset(6.0, 6.0),
-                              ),
-                            ],
-                            color: Colors.greenAccent[400]),
-                        child: const Icon(Icons.info_outline_rounded)),
-                  ),
+                      message:
+                          "The numbers represent the \n available parking spaces",
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.info_outline_rounded),
+                      ),
+                      waitDuration: Duration(milliseconds: 0),
+                      showDuration: Duration(seconds: 5),
+                      textAlign: TextAlign.center,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 10.0,
+                              offset: Offset(6.0, 6.0),
+                            ),
+                          ],
+                          color: Colors.grey[800]),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -213,8 +211,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                         Stack(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 45, left: 70),
+                              padding: const EdgeInsets.only(top: 45, left: 70),
                               child: Positioned(
                                 bottom: 0,
                                 right: 0,
@@ -282,8 +279,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                         Stack(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 45, left: 75),
+                              padding: const EdgeInsets.only(top: 45, left: 75),
                               child: Positioned(
                                 bottom: 0,
                                 right: 0,
@@ -356,8 +352,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                         Stack(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 45, left: 75),
+                              padding: const EdgeInsets.only(top: 45, left: 75),
                               child: Positioned(
                                 bottom: 0,
                                 right: 0,
@@ -425,8 +420,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                         Stack(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 45, left: 75),
+                              padding: const EdgeInsets.only(top: 45, left: 75),
                               child: Positioned(
                                 bottom: 0,
                                 right: 0,
@@ -499,8 +493,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                         Stack(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 45, left: 75),
+                              padding: const EdgeInsets.only(top: 45, left: 75),
                               child: Positioned(
                                 bottom: 0,
                                 right: 0,
@@ -568,8 +561,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                         Stack(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 45, left: 75),
+                              padding: const EdgeInsets.only(top: 45, left: 75),
                               child: Positioned(
                                 bottom: 0,
                                 right: 0,
