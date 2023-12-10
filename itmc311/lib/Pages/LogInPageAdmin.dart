@@ -1,10 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:itmc311/Pages/AdminBottomNav.dart';
+import 'package:itmc311/Pages/AdminPage.dart';
+import 'package:itmc311/Pages/LandingPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:itmc311/auth.dart';
 
-class LogInPageAdmin extends StatelessWidget {
+
+class LogInPageAdmin extends StatefulWidget {
   const LogInPageAdmin({super.key});
 
   @override
+  State<LogInPageAdmin> createState() => _LogInPageAdminState();
+}
+
+class _LogInPageAdminState extends State<LogInPageAdmin> {
+
+  final Authentication _auth = Authentication();
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+
+  @override
+  
+void dispose() {
+  _emailController.dispose();
+  _passwordController.dispose();
+  super.dispose();
+}
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(234, 247, 255, 1),
@@ -36,7 +61,8 @@ class LogInPageAdmin extends StatelessWidget {
               const SizedBox(
                 height: 50.0,
               ),
-              Image.asset('assets/admin.png',
+              Image.asset(
+                'assets/admin.png',
                 height: 200.0,
                 width: 200.0,
               ),
@@ -53,10 +79,11 @@ class LogInPageAdmin extends StatelessWidget {
                 //TextFormField
                 padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 20.0),
                 child: TextFormField(
+                  controller: _emailController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    labelText: 'Username',
+                    labelText: 'Email',
                     labelStyle: const TextStyle(
                       // color: Color.fromRGBO(0, 0, 255, 1),
                       fontSize: 15.0,
@@ -83,6 +110,8 @@ class LogInPageAdmin extends StatelessWidget {
                 //TextFormField
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 50.0),
                 child: TextFormField(
+                  controller: _passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -112,16 +141,7 @@ class LogInPageAdmin extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: ElevatedButton(
-                  onPressed: () {
-                    //Pag connect
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return AdminBottomNav();
-                        },
-                      ),
-                    );
-                  },
+                  onPressed: _Login,
                   style: ElevatedButton.styleFrom(
                     shadowColor: Colors.black,
                     elevation: 10,
@@ -149,4 +169,31 @@ class LogInPageAdmin extends StatelessWidget {
       ),
     );
   }
-}
+
+
+void _Login() async {
+  String email = _emailController.text;
+  String password = _passwordController.text;
+  
+  User? user = await _auth.signInWithEmailAndPassword(email, password);
+
+  // Basic validation
+  if (email.isEmpty || password.isEmpty) {
+    print("Successfully SignedIn");
+    return;
+  }
+
+  if (user != null) {
+    print("User successfully Login");
+    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return AdminPage();
+                      },
+                    ),
+                  );
+  } else {
+    print("Error Wrong Credentials");
+  }
+} }
