@@ -208,11 +208,11 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     width: 150,
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 45, left: 70),
-                              child: Positioned(
+                        Padding(
+                          padding: EdgeInsets.only(top: 15),
+                          child: Stack(
+                            children: [
+                              Positioned(
                                 bottom: 0,
                                 right: 0,
                                 child: Container(
@@ -232,33 +232,33 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                margin: EdgeInsets.only(top: 20),
-                                alignment: Alignment.centerLeft,
-                                child: ParkingArea(ParkingAreaSpaceManager
-                                        .availableParkingSpacesAlingalA ??
-                                    0),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20.0, bottom: 30),
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  alignment: Alignment.centerLeft,
+                                  child: ParkingArea(ParkingAreaSpaceManager
+                                          .availableParkingSpacesAlingalA ??
+                                      0),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Alingal A',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(10, 10, 31, 1),
-                                    fontSize: 16.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 30),
+                                  alignment: Alignment.topLeft,
+                                  child: const Text(
+                                    'Alingal A',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(10, 10, 31, 1),
+                                      fontSize: 16.0,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -276,16 +276,16 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     width: 150,
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 45, left: 75),
-                              child: Positioned(
+                        Padding(
+                          padding: EdgeInsets.only(top: 15),
+                          child: Stack(
+                            children: [
+                              Positioned(
                                 bottom: 0,
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 80,
+                                  width: 90,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -300,38 +300,106 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                margin: EdgeInsets.only(top: 20),
-                                alignment: Alignment.centerLeft,
-                                child: ParkingArea(ParkingAreaSpaceManager
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20.0, bottom: 30),
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  alignment: Alignment.centerLeft,
+                                  child: ParkingArea(ParkingAreaSpaceManager
                                         .availableParkingSpacesAlingalB ??
                                     0),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Alingal B',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(10, 10, 31, 1),
-                                    fontSize: 16.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 30),
+                                  alignment: Alignment.topLeft,
+                                  child: const Text(
+                                    'Alingal B',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(10, 10, 31, 1),
+                                      fontSize: 16.0,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
+                // Card(
+                //   color: Colors.white,
+                //   elevation: 10,
+                //   shadowColor: Colors.black87,
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(35.0),
+                //   ),
+                //   child: SizedBox(
+                //     height: 125,
+                //     width: 150,
+                //     child: Column(
+                //       children: [
+                //         Stack(
+                //           children: [
+                //             Padding(
+                //               padding: const EdgeInsets.only(top: 45, left: 75),
+                //               child: Positioned(
+                //                 bottom: 0,
+                //                 right: 0,
+                //                 child: Container(
+                //                   alignment: Alignment.bottomRight,
+                //                   width: 80,
+                //                   height: 80,
+                //                   decoration: const BoxDecoration(
+                //                     borderRadius: BorderRadius.only(
+                //                       bottomRight: Radius.circular(35),
+                //                     ),
+                //                     image: DecorationImage(
+                //                       image: AssetImage(
+                //                         'assets/Alingal-B.png',
+                //                       ),
+                //                       fit: BoxFit.cover,
+                //                     ),
+                //                   ),
+                //                 ),
+                //               ),
+                //             ),
+                //             Padding(
+                //               padding:
+                //                   const EdgeInsets.only(left: 20.0, top: 15),
+                //               child: Container(
+                //                 margin: EdgeInsets.only(top: 20),
+                //                 alignment: Alignment.centerLeft,
+                //                 child: ParkingArea(ParkingAreaSpaceManager
+                //                         .availableParkingSpacesAlingalB ??
+                //                     0),
+                //               ),
+                //             ),
+                //             Padding(
+                //               padding:
+                //                   const EdgeInsets.only(left: 20.0, top: 15),
+                //               child: Container(
+                //                 alignment: Alignment.topLeft,
+                //                 child: const Text(
+                //                   'Alingal B',
+                //                   style: TextStyle(
+                //                     color: Color.fromRGBO(10, 10, 31, 1),
+                //                     fontSize: 16.0,
+                //                   ),
+                //                 ),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
               ],
             ),
             Row(
@@ -349,16 +417,16 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     width: 150,
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 45, left: 75),
-                              child: Positioned(
+                        Padding(
+                          padding: EdgeInsets.only(top: 15),
+                          child: Stack(
+                            children: [
+                              Positioned(
                                 bottom: 0,
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 80,
+                                  width: 90,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -373,33 +441,33 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                margin: EdgeInsets.only(top: 20),
-                                alignment: Alignment.centerLeft,
-                                child: ParkingArea(ParkingAreaSpaceManager
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20.0, bottom: 30),
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  alignment: Alignment.centerLeft,
+                                  child: ParkingArea(ParkingAreaSpaceManager
                                         .availableParkingSpacesBurns ??
                                     0),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Burns',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(10, 10, 31, 1),
-                                    fontSize: 16.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 30),
+                                  alignment: Alignment.topLeft,
+                                  child: const Text(
+                                    'Burns',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(10, 10, 31, 1),
+                                      fontSize: 16.0,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -417,16 +485,16 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     width: 150,
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 45, left: 75),
-                              child: Positioned(
+                        Padding(
+                          padding: EdgeInsets.only(top: 15),
+                          child: Stack(
+                            children: [
+                              Positioned(
                                 bottom: 0,
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 80,
+                                  width: 90,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -441,33 +509,33 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                margin: EdgeInsets.only(top: 20),
-                                alignment: Alignment.centerLeft,
-                                child: ParkingArea(ParkingAreaSpaceManager
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20.0, bottom: 30),
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  alignment: Alignment.centerLeft,
+                                  child: ParkingArea(ParkingAreaSpaceManager
                                         .availableParkingSpacesCocoCafe ??
                                     0),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Coco',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(10, 10, 31, 1),
-                                    fontSize: 16.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 30),
+                                  alignment: Alignment.topLeft,
+                                  child: const Text(
+                                    'Coco',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(10, 10, 31, 1),
+                                      fontSize: 16.0,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -490,16 +558,16 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     width: 150,
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 45, left: 75),
-                              child: Positioned(
+                        Padding(
+                          padding: EdgeInsets.only(top: 15),
+                          child: Stack(
+                            children: [
+                              Positioned(
                                 bottom: 0,
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 80,
+                                  width: 90,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -514,33 +582,33 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                margin: EdgeInsets.only(top: 20),
-                                alignment: Alignment.centerLeft,
-                                child: ParkingArea(ParkingAreaSpaceManager
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20.0, bottom: 30),
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  alignment: Alignment.centerLeft,
+                                  child: ParkingArea(ParkingAreaSpaceManager
                                         .availableParkingSpacesCC ??
                                     0),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Covered Court',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(10, 10, 31, 1),
-                                    fontSize: 16.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 30),
+                                  alignment: Alignment.topLeft,
+                                  child: const Text(
+                                    'Covered Court',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(10, 10, 31, 1),
+                                      fontSize: 16.0,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -558,16 +626,16 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     width: 150,
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 45, left: 75),
-                              child: Positioned(
+                        Padding(
+                          padding: EdgeInsets.only(top: 15),
+                          child: Stack(
+                            children: [
+                              Positioned(
                                 bottom: 0,
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 80,
+                                  width: 90,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -582,33 +650,33 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                margin: EdgeInsets.only(top: 20),
-                                alignment: Alignment.centerLeft,
-                                child: ParkingArea(ParkingAreaSpaceManager
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 20.0, bottom: 30),
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  alignment: Alignment.centerLeft,
+                                  child: ParkingArea(ParkingAreaSpaceManager
                                         .availableParkingSpacesLibrary ??
                                     0),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20.0, top: 15),
-                              child: Container(
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Library',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(10, 10, 31, 1),
-                                    fontSize: 16.0,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 30),
+                                  alignment: Alignment.topLeft,
+                                  child: const Text(
+                                    'Library',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(10, 10, 31, 1),
+                                      fontSize: 16.0,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
