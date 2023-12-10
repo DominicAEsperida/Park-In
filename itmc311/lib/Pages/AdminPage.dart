@@ -463,8 +463,12 @@ class _ParkingAreaState extends State<ParkingArea> {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content:
-                Text('Parking spaces limit (20) reached for ${widget.name}.'),
+            content: Text(
+              'Parking spaces limit (20) reached for ${widget.name}.',
+              style: TextStyle(
+                fontFamily: 'Inter',
+              ),
+            ),
             duration: const Duration(seconds: 1),
           ),
         );
