@@ -106,7 +106,7 @@ class IconBottomBar extends StatelessWidget {
                   : Color.fromRGBO(0, 0, 255, 0.50)),
         ),
         Padding(
-          padding: selected ? EdgeInsets.only(left: 10) :  EdgeInsets.only(left: 5) ,
+          padding: selected ? EdgeInsets.only(left: 5) :  EdgeInsets.only(left: 3) ,
           child: Text(
             text,
             style: TextStyle(
