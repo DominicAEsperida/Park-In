@@ -456,7 +456,9 @@ class _ParkingAreaState extends State<ParkingArea> {
 
   void incrementSpaces() {
     setState(() {
-      if (availableSpaces < 20) {
+      int maxLimit = getMaxLimitForParkingArea(widget.name);
+
+      if (availableSpaces < maxLimit) {
         availableSpaces++;
         widget.onIncrement();
         updateDatabase();
@@ -464,16 +466,31 @@ class _ParkingAreaState extends State<ParkingArea> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              'Parking spaces limit (20) reached for ${widget.name}.',
-              style: TextStyle(
-                fontFamily: 'Inter',
-              ),
-            ),
-            duration: const Duration(seconds: 1),
+                'Parking spaces limit ($maxLimit) reached for ${widget.name}.'),
+            duration: Duration(seconds: 2),
           ),
         );
       }
     });
+  }
+
+  int getMaxLimitForParkingArea(String parkingAreaName) {
+    switch (parkingAreaName) {
+      case 'Alingal A':
+        return 35;
+      case 'Alingal B':
+        return 13;
+      case 'Burns':
+        return 15;
+      case 'Coco Cafe':
+        return 16;
+      case 'CC':
+        return 19;
+      case 'Library':
+        return 9;
+      default:
+        return 20; // Default to 20 if the parking area is not specified
+    }
   }
 
   void decrementSpaces() {
