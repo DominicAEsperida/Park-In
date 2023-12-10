@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:itmc311/Pages/LogInPageAdmin.dart';
 import 'package:itmc311/Pages/SVBottomNav.dart';
 
-
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
@@ -17,7 +16,9 @@ class LandingPage extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            Image.asset('assets/Logo.png'),
+            Image.asset(
+              'assets/Logo.png',
+            ),
             // Image.network(
             //     'https://lh3.googleusercontent.com/drive-viewer/AK7aPaC_5HKXZOTr7orv4IneSsqrP263_shCLT_Cuufr123ydUSvoQuboK1KGfJYcW-W-wT9dq3cAJvYs8Aa0WWuNeH2UDuwHQ=s2560'),
             const Text(
@@ -61,8 +62,6 @@ class LandingPage extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  shadowColor: Colors.black,
-                  elevation: 10,
                   backgroundColor: const Color.fromRGBO(0, 0, 255, 1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50.0),
@@ -83,7 +82,7 @@ class LandingPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(5.0),
-              child: ElevatedButton(
+              child: OutlinedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -94,12 +93,14 @@ class LandingPage extends StatelessWidget {
                     ),
                   );
                 },
-                style: ElevatedButton.styleFrom(
-                  shadowColor: Colors.black,
-                  elevation: 10,
-                  backgroundColor: const Color.fromRGBO(0, 0, 255, 1),
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50.0),
+                  ),
+                  side: BorderSide(
+                    width: 2,
+                    color: Color.fromRGBO(0, 0, 255, 1),
                   ),
                 ),
                 child: const Padding(
@@ -109,7 +110,7 @@ class LandingPage extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'BubbleboddyNeue',
                       fontSize: 20.0,
-                      color: Color.fromRGBO(235, 235, 235, 1),
+                      color: Color.fromRGBO(0, 0, 255, 1),
                     ),
                   ),
                 ),
@@ -117,8 +118,7 @@ class LandingPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 110.0),
-              
-              child:  Image.asset('assets/landingpage.png'),
+              child: Image.asset('assets/landingpage.png'),
             ),
             const Text(
               '© 2023 Cho P. Ltd, Inc. All Rights Reserved',
