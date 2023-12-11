@@ -7,5 +7,4 @@ class Authentication {
       UserCredential credential =await _auth.signInWithEmailAndPassword(email: email, password: password);
       return credential.user;
   }
-
 }
