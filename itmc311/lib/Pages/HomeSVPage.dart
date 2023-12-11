@@ -114,6 +114,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                           child: const Text(
                             'Available Parking Spaces',
                             style: TextStyle(
+                              fontFamily: "BubbleboddyNeue",
                               color: Color.fromRGBO(235, 235, 235, 1.0),
                               fontSize: 20.0,
                             ),
@@ -133,7 +134,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.only(top: 12.0),
+                          padding: const EdgeInsets.only(top: 10.0),
                           alignment: Alignment.bottomRight,
                           child: const Text(
                             '**Approximately',
@@ -161,6 +162,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     child: const Text(
                       'Parking Areas',
                       style: TextStyle(
+                        fontFamily: "BubbleboddyNeue",
                         color: Color.fromRGBO(10, 10, 31, 1),
                         fontSize: 20.0,
                       ),
@@ -251,6 +253,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   child: const Text(
                                     'Alingal A',
                                     style: TextStyle(
+                                      fontFamily: "BubbleboddyNeue",
                                       color: Color.fromRGBO(10, 10, 31, 1),
                                       fontSize: 16.0,
                                     ),
@@ -319,6 +322,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   child: const Text(
                                     'Alingal B',
                                     style: TextStyle(
+                                      fontFamily: "BubbleboddyNeue",
                                       color: Color.fromRGBO(10, 10, 31, 1),
                                       fontSize: 16.0,
                                     ),
@@ -392,6 +396,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   child: const Text(
                                     'Burns',
                                     style: TextStyle(
+                                      fontFamily: "BubbleboddyNeue",
                                       color: Color.fromRGBO(10, 10, 31, 1),
                                       fontSize: 16.0,
                                     ),
@@ -460,6 +465,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   child: const Text(
                                     'Coco',
                                     style: TextStyle(
+                                      fontFamily: "BubbleboddyNeue",
                                       color: Color.fromRGBO(10, 10, 31, 1),
                                       fontSize: 16.0,
                                     ),
@@ -533,6 +539,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   child: const Text(
                                     'Covered Court',
                                     style: TextStyle(
+                                      fontFamily: "BubbleboddyNeue",
                                       color: Color.fromRGBO(10, 10, 31, 1),
                                       fontSize: 16.0,
                                     ),
@@ -601,6 +608,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   child: const Text(
                                     'Library',
                                     style: TextStyle(
+                                      fontFamily: "BubbleboddyNeue",
                                       color: Color.fromRGBO(10, 10, 31, 1),
                                       fontSize: 16.0,
                                     ),
