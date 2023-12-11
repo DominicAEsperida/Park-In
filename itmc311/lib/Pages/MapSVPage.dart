@@ -23,6 +23,7 @@ class _MapSVPageState extends State<MapSVPage> {
               child: Text(
                 'Alingal A',
                 style: TextStyle(
+                  fontFamily: "BubbleboddyNeue",
                   fontSize: 26,
                   color: Color.fromRGBO(10, 10, 31, 1),
                 ),
@@ -52,6 +53,7 @@ class _MapSVPageState extends State<MapSVPage> {
               child: Text(
                 'Alingal B',
                 style: TextStyle(
+                  fontFamily: "BubbleboddyNeue",
                   fontSize: 26,
                   color: Color.fromRGBO(10, 10, 31, 1),
                 ),
@@ -80,6 +82,7 @@ class _MapSVPageState extends State<MapSVPage> {
               child: Text(
                 'Burns',
                 style: TextStyle(
+                  fontFamily: "BubbleboddyNeue",
                   fontSize: 26,
                   color: Color.fromRGBO(10, 10, 31, 1),
                 ),
@@ -108,6 +111,7 @@ class _MapSVPageState extends State<MapSVPage> {
               child: Text(
                 'Coco Cafe',
                 style: TextStyle(
+                  fontFamily: "BubbleboddyNeue",
                   fontSize: 26,
                   color: Color.fromRGBO(10, 10, 31, 1),
                 ),
@@ -137,6 +141,7 @@ class _MapSVPageState extends State<MapSVPage> {
               child: Text(
                 'Covered Court',
                 style: TextStyle(
+                  fontFamily: "BubbleboddyNeue",
                   fontSize: 26,
                   color: Color.fromRGBO(10, 10, 31, 1),
                 ),
@@ -165,6 +170,7 @@ class _MapSVPageState extends State<MapSVPage> {
               child: Text(
                 'Library',
                 style: TextStyle(
+                  fontFamily: "BubbleboddyNeue",
                   fontSize: 26,
                   color: Color.fromRGBO(10, 10, 31, 1),
                 ),
