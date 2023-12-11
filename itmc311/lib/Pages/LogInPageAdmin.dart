@@ -179,7 +179,7 @@ void _Login() async {
 
   // Basic validation
   if (email.isEmpty || password.isEmpty) {
-    print("Successfully SignedIn");
+    print("Successfully Signed In");
     return;
   }
 
@@ -189,7 +189,7 @@ void _Login() async {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return AdminPage();
+                        return AdminBottomNav();
                       },
                     ),
                   );
