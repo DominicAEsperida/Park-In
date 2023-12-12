@@ -54,25 +54,40 @@ void dispose() {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+        padding:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
         child: Center(
           child: Column(
             children: [
               const SizedBox(
-                height: 50.0,
+                height: 30.0,
               ),
               Image.asset(
                 'assets/admin.png',
-                height: 200.0,
-                width: 200.0,
+                height: 150.0,
+                width: 150.0,
               ),
-              const Text(
-                'Log In',
-                style: TextStyle(
-                  fontFamily: 'BubbleboddyNeue',
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(10, 10, 31, 1),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: const Text(
+                  'Log In Your Account',
+                  style: TextStyle(
+                    fontFamily: 'BubbleboddyNeue',
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(10, 10, 31, 1),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: const Text(
+                  'Welcome back! Enter your admin details.',
+                  style: TextStyle(
+                    fontFamily: 'BubbleboddyNeue',
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w300,
+                    color: Color.fromRGBO(10, 10, 31, 1),
+                  ),
                 ),
               ),
               Padding(
@@ -81,6 +96,7 @@ void dispose() {
                 child: TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
+                    helperText: "Ex: Admin@gmail.com",
                     filled: true,
                     fillColor: Colors.white,
                     labelText: 'Email',
@@ -163,6 +179,17 @@ void dispose() {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(top: 70),
+                child: Text(
+                '© 2023 Cho P. Ltd, Inc. All Rights Reserved',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 10.0,
+                  color: Color.fromRGBO(10, 10, 31, 1),
+                ),
+                          ),
+              )
             ],
           ),
         ),
@@ -179,7 +206,7 @@ void _Login() async {
 
   // Basic validation
   if (email.isEmpty || password.isEmpty) {
-    print("Successfully Signed In");
+    print("Unsuccessful Sign In");
     return;
   }
 
