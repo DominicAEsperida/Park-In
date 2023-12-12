@@ -362,7 +362,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 90,
+                                  width: 100,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -431,7 +431,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 90,
+                                  width: 100,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -505,7 +505,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 90,
+                                  width: 110,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -574,7 +574,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 90,
+                                  width: 130,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
