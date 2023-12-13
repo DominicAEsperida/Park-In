@@ -96,9 +96,10 @@ class _HomeSVPageState extends State<HomeSVPage> {
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
                       colors: [
-                        Color.fromRGBO(0, 0, 255, 1.0),
-                        Color.fromRGBO(0, 0, 255, 0.80),
-                        Color.fromRGBO(0, 0, 255, 0.30),
+                        Color.fromRGBO(0, 0, 255, 1),
+                        Color.fromRGBO(36, 38, 255, 1),
+                        Color.fromRGBO(72, 76, 255, 1),
+                        Color.fromRGBO(109, 114, 255, 1),
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -129,10 +130,32 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   Icons.refresh_rounded,
                                   size: 25,
                                   color: Color.fromRGBO(234, 247, 255, 1),
-                                ), // Use any icon you prefer
+                                ), 
                                 onPressed: () {
-                                  // Call yrour updateDatabase function here
                                   updateAvailableSpaces();
+                                  
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      width: MediaQuery.of(context).size.width * 0.9,
+                                      behavior: SnackBarBehavior.floating,
+                                      backgroundColor: Colors.transparent,
+                                      elevation: 0,
+                                      content: Container(
+                                        padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey[800],
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Text(
+                                          'Refreshing... Please wait',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontFamily: 'BubbleboddyNeue'),
+                                        ),
+                                      ),
+                                      duration: Duration(seconds: 3),
+                                    ),
+                                  );
                                 },
                               ),
                             ),
