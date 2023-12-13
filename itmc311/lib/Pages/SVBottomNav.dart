@@ -21,8 +21,8 @@ class _StudentScreenState extends State<StudentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-      backgroundColor: Color.fromRGBO(234, 247, 255, 1),
+        extendBody: true,
+        backgroundColor: Color.fromRGBO(234, 247, 255, 1),
         body: screen[selectedIndex],
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(left: 50, right: 50, bottom: 20),
@@ -30,6 +30,14 @@ class _StudentScreenState extends State<StudentScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Shadow color
+                  spreadRadius: 1, // Spread radius
+                  blurRadius: 10, // Blur radius
+                  offset: Offset(0, 3), // Offset in the x, y direction
+                ),
+              ],
             ),
             child: BottomAppBar(
               elevation: 0,
@@ -78,7 +86,6 @@ class _StudentScreenState extends State<StudentScreen> {
   }
 }
 
-
 class IconBottomBar extends StatelessWidget {
   final String text;
   final IconData icon;
@@ -106,7 +113,8 @@ class IconBottomBar extends StatelessWidget {
                   : Color.fromRGBO(0, 0, 255, 0.50)),
         ),
         Padding(
-          padding: selected ? EdgeInsets.only(left: 5) :  EdgeInsets.only(left: 3) ,
+          padding:
+              selected ? EdgeInsets.only(left: 5) : EdgeInsets.only(left: 3),
           child: Text(
             text,
             style: TextStyle(

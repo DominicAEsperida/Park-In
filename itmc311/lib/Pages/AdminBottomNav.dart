@@ -30,8 +30,17 @@ class _AdminBottomNavState extends State<AdminBottomNav> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Shadow color
+                  spreadRadius: 1, // Spread radius
+                  blurRadius: 7, // Blur radius
+                  offset: Offset(0, 3), // Offset in the x, y direction
+                ),
+              ],
             ),
             child: BottomAppBar(
+              
               elevation: 0,
               color: Colors.transparent,
               child: Padding(
