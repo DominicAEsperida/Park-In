@@ -106,19 +106,37 @@ class _HomeSVPageState extends State<HomeSVPage> {
                     borderRadius: BorderRadius.circular(35.0),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(18.0),
                     child: Column(
                       children: [
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Available Parking Spaces',
-                            style: TextStyle(
-                              fontFamily: "BubbleboddyNeue",
-                              color: Color.fromRGBO(235, 235, 235, 1.0),
-                              fontSize: 20.0,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: const Text(
+                                'Available Parking Spaces',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(235, 235, 235, 1.0),
+                                  fontSize: 20.0,
+                                ),
+                              ),
                             ),
-                          ),
+                            Container(
+                              alignment: Alignment.topRight,
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.refresh_rounded,
+                                  size: 25,
+                                  color: Color.fromRGBO(234, 247, 255, 1),
+                                ), // Use any icon you prefer
+                                onPressed: () {
+                                  // Call yrour updateDatabase function here
+                                  updateAvailableSpaces();
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                         const Divider(
                           color: Color.fromRGBO(235, 235, 235, 1.0),
@@ -129,20 +147,19 @@ class _HomeSVPageState extends State<HomeSVPage> {
                               .toString(),
                           style: const TextStyle(
                             fontFamily: 'Arista',
-                            fontSize: 125,
+                            fontSize: 105,
                             color: Color.fromRGBO(235, 235, 235, 1.0),
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.only(top: 10.0),
+                          padding: const EdgeInsets.only(top: 5.0),
                           alignment: Alignment.bottomRight,
                           child: const Text(
                             '**Approximately',
                             style: TextStyle(
                               fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.w200,
                               color: Color.fromRGBO(235, 235, 235, 0.50),
-                              fontSize: 12.0,
+                              fontSize: 10.0,
                             ),
                           ),
                         ),
@@ -219,7 +236,7 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                 right: 0,
                                 child: Container(
                                   alignment: Alignment.bottomRight,
-                                  width: 90,
+                                  width: 100,
                                   height: 80,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.only(
@@ -310,8 +327,8 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.centerLeft,
                                   child: ParkingArea(ParkingAreaSpaceManager
-                                        .availableParkingSpacesAlingalB ??
-                                    0),
+                                          .availableParkingSpacesAlingalB ??
+                                      0),
                                 ),
                               ),
                               Padding(
@@ -384,8 +401,8 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.centerLeft,
                                   child: ParkingArea(ParkingAreaSpaceManager
-                                        .availableParkingSpacesBurns ??
-                                    0),
+                                          .availableParkingSpacesBurns ??
+                                      0),
                                 ),
                               ),
                               Padding(
@@ -453,8 +470,8 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.centerLeft,
                                   child: ParkingArea(ParkingAreaSpaceManager
-                                        .availableParkingSpacesCocoCafe ??
-                                    0),
+                                          .availableParkingSpacesCocoCafe ??
+                                      0),
                                 ),
                               ),
                               Padding(
@@ -527,8 +544,8 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.centerLeft,
                                   child: ParkingArea(ParkingAreaSpaceManager
-                                        .availableParkingSpacesCC ??
-                                    0),
+                                          .availableParkingSpacesCC ??
+                                      0),
                                 ),
                               ),
                               Padding(
@@ -596,8 +613,8 @@ class _HomeSVPageState extends State<HomeSVPage> {
                                   margin: EdgeInsets.only(top: 20),
                                   alignment: Alignment.centerLeft,
                                   child: ParkingArea(ParkingAreaSpaceManager
-                                        .availableParkingSpacesLibrary ??
-                                    0),
+                                          .availableParkingSpacesLibrary ??
+                                      0),
                                 ),
                               ),
                               Padding(
