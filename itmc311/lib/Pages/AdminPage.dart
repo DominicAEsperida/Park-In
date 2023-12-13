@@ -186,18 +186,23 @@ class _AdminPageState extends State<AdminPage> {
                       borderRadius: BorderRadius.circular(35.0),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(18.0),
                       child: Column(
                         children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'Available Parking Spaces',
-                              style: TextStyle(
-                                color: Color.fromRGBO(235, 235, 235, 1.0),
-                                fontSize: 20.0,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                alignment: Alignment.topLeft,
+                                child: const Text(
+                                  'Available Parking Spaces',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(235, 235, 235, 1.0),
+                                    fontSize: 20.0,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                           const Divider(
                             color: Color.fromRGBO(235, 235, 235, 1.0),
@@ -208,19 +213,19 @@ class _AdminPageState extends State<AdminPage> {
                                 .toString(),
                             style: const TextStyle(
                               fontFamily: 'Arista',
-                              fontSize: 125,
+                              fontSize: 105,
                               color: Color.fromRGBO(235, 235, 235, 1.0),
                             ),
                           ),
                           Container(
-                            padding: const EdgeInsets.only(top: 5.0),
+                            padding: const EdgeInsets.only(top: 35.0),
                             alignment: Alignment.bottomRight,
                             child: const Text(
                               '**Approximately',
                               style: TextStyle(
                                 fontStyle: FontStyle.italic,
                                 color: Color.fromRGBO(235, 235, 235, 0.50),
-                                fontSize: 12.0,
+                                fontSize: 10.0,
                               ),
                             ),
                           ),
