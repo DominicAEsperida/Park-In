@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Park-In',
       debugShowCheckedModeBanner: false,
       theme:
-          ThemeData(primarySwatch: Colors.blue, fontFamily: 'Inter'),
+          ThemeData(primarySwatch: Colors.blue, fontFamily: 'BubbleboddyNeue'),
       home: const RootPage(),
       routes: {
         '/help': (context) => const GuidePage(),
