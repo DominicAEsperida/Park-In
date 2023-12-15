@@ -18,6 +18,8 @@ class _LogInPageAdminState extends State<LogInPageAdmin> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  String _errorText = ""; // Add this variable to store the error message
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -87,8 +89,8 @@ class _LogInPageAdminState extends State<LogInPageAdmin> {
                     ),
                   ),
                 ),
+
                 Padding(
-                  //TextFormField
                   padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 20.0),
                   child: TextFormField(
                     style: TextStyle(
@@ -126,7 +128,6 @@ class _LogInPageAdminState extends State<LogInPageAdmin> {
                   ),
                 ),
                 Padding(
-                  //TextFormField
                   padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 50.0),
                   child: TextFormField(
                     style: TextStyle(
@@ -160,10 +161,19 @@ class _LogInPageAdminState extends State<LogInPageAdmin> {
                     ),
                   ),
                 ),
+
+                // Display error text with red color
+                Text(
+                  _errorText,
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                ),
+
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton(
-                    onPressed: _Login,
+                    onPressed: _login,
                     style: ElevatedButton.styleFrom(
                       shadowColor: Colors.black,
                       elevation: 10,
@@ -185,6 +195,7 @@ class _LogInPageAdminState extends State<LogInPageAdmin> {
                     ),
                   ),
                 ),
+
                 Padding(
                   padding: const EdgeInsets.only(top: 70),
                   child: Text(
@@ -204,21 +215,11 @@ class _LogInPageAdminState extends State<LogInPageAdmin> {
     );
   }
 
-  void _Login() async {
+  void _login() async {
     String email = _emailController.text;
     String password = _passwordController.text;
 
-    // Basic validation
-    if (email.isEmpty || password.isEmpty) {
-      // Show a snackbar or dialog to inform the user about the validation error
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Email and password are required."),
-          duration: Duration(seconds: 2),
-        ),
-      );
-      return;
-    }
+    // ... (previous code)
 
     User? user = await _auth.signInWithEmailAndPassword(email, password);
 
@@ -232,15 +233,31 @@ class _LogInPageAdminState extends State<LogInPageAdmin> {
           },
         ),
       );
+    } else if (email.isEmpty || password.isEmpty) {
+      setState(() {
+        _errorText =
+            "Email and password are required. Please enter valid credentials.";
+      });
+      print("Error: Email and password are required.");
+    } else if (!_isValidEmail(email)) {
+      setState(() {
+        _errorText =
+            "Invalid email format. Please enter a valid email address.";
+      });
+      print("Error: Invalid email format.");
     } else {
-      // Show a snackbar or dialog to inform the user about the login failure
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Incorrect email or password. Please try again."),
-          duration: Duration(seconds: 2),
-        ),
-      );
-      print("Error Wrong Credentials");
+      setState(() {
+        _errorText = "Incorrect email or password. Please try again.";
+      });
+      print("Error: Wrong Credentials");
     }
+  }
+
+  bool _isValidEmail(String email) {
+    // You can use a regular expression for basic email format validation
+    // This is a simple example, and you might want to use a more comprehensive regex
+    String emailRegex = r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$';
+    RegExp regex = RegExp(emailRegex);
+    return regex.hasMatch(email);
   }
 }
